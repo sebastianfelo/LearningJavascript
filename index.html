@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-select/dist/css/bootstrap-select.min.css">
+
+    
+    
+    <style>
+        #aaa{ width: 100px;}
+        .long-text{ 
+            overflow: hidden; 
+            white-space: nowrap; 
+            text-overflow: ellipsis;
+        }
+    </style>
+
+
+</head>
+<body>
+    
+
+    <select class="selectpicker"  data-live-search="true">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Barbecue</option>
+      </select>
+
+
+        
+
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+        <script src="bootstrap-select/dist/js/bootstrap-select.js"></script>
+
+        <script>
+        
+
+            
+            $(function () {
+                $('select').selectpicker();
+            });
+        </script>
+
+
+<div class="long-text" id="aaa">eso es un texto demasiado pero demasiado y muy muy grande</div>
+
+</body>
+</html>

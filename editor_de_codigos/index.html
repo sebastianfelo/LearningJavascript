@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Codigo</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    
+    <style>
+        BODY{ background-color: #111;}
+        #container{ width: 100%; height: 100vh; border: solid 1px; display: inline-flex; }
+        .text{ margin: 0.5rem; padding: 0.1rem; width: 100%; }
+        iframe{ margin: 0.5rem; padding: 0.1rem; width: 100%; background-color: white;}
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <textarea id="text" class="text" placeholder="Escribe tu codigo aquí" onkeyup="update()"></textarea>
+        <iframe srcdoc="<h1>Prueba</h1>" id="view"></iframe>
+    </div>
+
+    <script type="text/javascript" src="js/scripts.js"></script>
+    
+</body>
+</html>

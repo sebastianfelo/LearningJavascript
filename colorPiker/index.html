@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <style>
+        BODY{text-align: center;}
+        #salida{ border: solid 1px black; width: 200px; height: 100px; margin: 22px auto; font-size: 20px; color: white; text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;}
+        LI{ display: inline; border: solid 1px gray; padding: 4px; margin: 4px;}
+    </style>
+</head>
+<body onload="cargaInicial()">
+    <h2>Paleta de Colores</h2>
+    <div class="salida" id="salida">#ffffff</div>
+
+    <input type="color" id="color" class="color" value="#ffffff">
+    <input type="button" id="btn_guardarColor" value="Guardar Color" >
+    
+    <p id="contador"></p>
+    <ul id="contenedorDeColores">
+        <li>Esperando Elementos</li>
+    </ul>
+    
+    <script>
+        
+        const color = document.getElementById('color');
+        const salida = document.getElementById('salida');
+
+        const storage = localStorage.getItem('colorValue') || '#ff0000';
+
+
+        const setColor = () => {
+            const value = color.value;
+            salida.innerHTML = value;
+            salida.style.background = value;
+            //salida.style.color = 'red';
+            saveColor(value);
+        }
+
+        const saveColor = (value) => {
+            localStorage.setItem('colorValue', value);
+        }
+
+        color.addEventListener("input", setColor);
+        console.log(storage);
+        salida.innerHTML = storage;
+        salida.style.background = storage;
+
+        function cargaInicial(){
+           color.value = localStorage.getItem('colorValue');
+            //a
+        }
+
+        //-- HISTORIAL --
+        const btn_guardarColor = document.getElementById('btn_guardarColor');
+        const contenedorDeColores = document.getElementById('contenedorDeColores');
+        const contador = document.getElementById('contador');
+
+        const listaColores = [];
+
+        
+        //function guardarArray(){
+        const guardarArray = () => {
+            const value = color.value;
+            //alert(color.value);
+            listaColores.push(color.value);
+
+            mostrarArray();
+        }
+
+        const mostrarArray = () =>{
+            let totArray = listaColores.length;
+            let listado = '';
+            console.log(listaColores);
+            contador.innerHTML = totArray;
+            
+            for (let i = 0; i < totArray; i++) {
+                listado += "<li style='background:"+ listaColores[i] +"'>" + listaColores[i] + "</li>";
+              }
+
+            contenedorDeColores.innerHTML = listado;
+            
+        }
+
+        btn_guardarColor.addEventListener('click', guardarArray);
+
+
+
+    </script>
+</body>
+</html>
