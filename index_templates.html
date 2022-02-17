@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Documento sin título</title>
+</head>
+
+<body>
+
+
+
+
+<div id="salida">aaaa</div>
+
+<script type="text/javascript">
+
+    let nombre = 'Juan'; 
+    let apellido = 'Alvarez';
+    
+    let texto = `<h1>
+        esto es texto ${nombre} ${apellido}
+        </h1>`;
+    
+    
+    console.log(texto);
+    
+    let salida = document.getElementById('salida');
+    salida.innerHTML = `aaaaaa bcd ${nombre}`;
+    salida.style.color= 'red';
+</script>
+</body>
+</html>
